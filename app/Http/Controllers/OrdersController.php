@@ -11,36 +11,25 @@ use App\Order;
 use App\coffee;
 class OrdersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $orders = Order::all();
+
+
 
         return view('order.dashboard', compact('orders'));
 
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
         return view('order.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function store(Request $request)
     {
         $order = new Order(array(
@@ -65,12 +54,7 @@ class OrdersController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function show($id)
     {
         $order = Order::whereId($id)->firstOrFail();
@@ -101,37 +85,43 @@ class OrdersController extends Controller
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit($id)
     {
-        //
+        $order = Order::whereId($id)->firstOrFail();
+         return view('order.edit', compact('order'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  
     public function update(Request $request, $id)
     {
-        //
+        $order = Order::whereId($id)->firstOrFail();
+
+
+        $order->customerID = $request->get('customerID');
+        $order->tableNo = $request->get('tableno');
+        $order->coffee1 = $request->get('coffee1');
+        $order->coffee2 = $request->get('coffee2');
+        $order->coffee3 = $request->get('coffee3');
+        $order->coffee4 = $request->get('coffee4');
+        $order->coffee5 = $request->get('coffee5');
+        $order->pastry1 = $request->get('pastry1');
+        $order->pastry2 = $request->get('pastry2');
+        $order->pastry3 = $request->get('pastry3');
+        $order->pastry4 = $request->get('pastry4');
+        $order->pastry5 = $request->get('pastry5');
+
+
+        $order->save();
+        return redirect('/order/index')->with('status', 'The order '.$id.' has been updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
-        //
+        $order = Order::whereId($id)->firstOrFail();
+        $order->delete();
+
+        return redirect('/order/index')->with('status', 'The selected order has been deleted');
     }
 }

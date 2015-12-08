@@ -12,7 +12,11 @@
                      @if ($users->isEmpty())
                         <p> There is no user.</p>
                     @else
-
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <table class="table no-margin">
                       <thead>
                         <tr>
@@ -26,7 +30,7 @@
 
                          @foreach($users as $user)
                           <tr>
-                            <td><a href="pages/examples/invoice.html"><span class="label label-success">{!! $user->id !!}</span></a></td>
+                            <td><a href="{!! action('AdminsController@show', $user->id) !!}"><span class="label label-success">{!! $user->id !!}</span></a></td>
                             <td>{!! $user->email !!}</td>
                             <td>RM{!! $user->salary !!}</td>
                             <td>Admin</td>

@@ -10,8 +10,8 @@
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <h3>150</h3>
-                  <p>Ordes</p>
+                  <h3>{!! $ordersTotal !!}</h3>
+                  <p>Orders</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-cart-plus"></i>
@@ -23,8 +23,8 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>20<sup style="font-size: 20px">%</sup></h3>
-                  <p>Conversion Sales</p>
+                  <h3>{!! $rate !!}<sup style="font-size: 20px">%</sup></h3>
+                  <p>Profit Margin</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-line-chart"></i>
@@ -36,7 +36,7 @@
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3>{!! $usersTotal !!}</h3>
                   <p>User Registrations</p>
                 </div>
                 <div class="icon">
@@ -49,7 +49,7 @@
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3><span>RM</span>3240</h3>
+                  <h3><span>RM</span>{!! $sum !!}</h3>
                   <p>Total Sales</p>
                 </div>
                 <div class="icon">

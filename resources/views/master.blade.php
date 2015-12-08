@@ -142,7 +142,11 @@
               <p>Guest</p>
             @endif
               <!-- Status -->
-              <a href="#"><i class="fa fa-circle text-success"></i> Role</a>
+              @hasrole('Admin')
+              <a href="#"><i class="fa fa-circle text-success"></i> Admin</a>
+              @else
+              <a href="#"><i class="fa fa-circle text-success"></i> Staff</a>
+              @endhasrole
             </div>
           </div>
 
@@ -163,6 +167,7 @@
               </ul>
             </li>
 
+            @hasrole('Admin')
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-users"></i>
@@ -171,11 +176,12 @@
               <ul class="treeview-menu">
                 <li><a href="users/register"><i class="fa fa-circle-o"></i> Add New User</a></li>
                 <li><a href="/users"><i class="fa fa-circle-o"></i> List All Users</a></li>
-                <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Change Role</a></li>
               </ul>
             </li>
+            @else
+            @endhasrole
 
-
+            @hasrole('Admin')
             <li class="treeview">
                   <a href="#"><i class="fa fa-tags"></i> <span>Product</span> <i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
@@ -196,7 +202,10 @@
 
                   </ul>
             </li>
+            @else
+            @endhasrole
 
+            @hasrole('Admin')
             <li>
                   <a href="#"><i class="fa fa-cogs"></i> <span>Settings</span> <i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
@@ -217,7 +226,8 @@
 
                   </ul>
             </li>
-
+            @else
+            @endhasrole
 
           </ul><!-- /.sidebar-menu -->
         </section>

@@ -10,6 +10,7 @@ use App\User;
 use App\Order;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use DB;
 
 
 
@@ -19,22 +20,52 @@ class AdminsController extends Controller
     
     public function index()
     {
+
         $users = User::all();
         $orders = Order::all();
-        
-        
-        // foreach ($users as $user){
 
-        //    if($user->hasRole('Staff')){
-        //         $role = 'Staff';
-        //    }elseif($user->hasRole('Admin')){
-        //         $role = 'Admin';
-        //    }else{
-        //         $role = 'undefined';
-        //    }
-        // }
+        $usersTotal = count($users);
+        $ordersTotal = count($orders);
+        
 
-        return view('admin.dashboard', compact('users','orders'));
+        
+        $coffee1 = DB::table('coffees')->where('id',2)->first();
+        $coffee2 = DB::table('coffees')->where('id',3)->first();
+        $coffee3 = DB::table('coffees')->where('id',4)->first();
+        $coffee4 = DB::table('coffees')->where('id',5)->first();
+        $coffee5 = DB::table('coffees')->where('id',6)->first();
+
+        $pastry1 = DB::table('pastries')->where('id',7)->first();
+        $pastry2 = DB::table('pastries')->where('id',10)->first();
+        $pastry3 = DB::table('pastries')->where('id',11)->first();
+        $pastry4 = DB::table('pastries')->where('id',12)->first();
+        $pastry5 = DB::table('pastries')->where('id',15)->first();
+
+      
+        $sum = 0;
+        foreach ($orders as $order) {
+
+            for($i = 1; $i < 6; $i++)  {
+                $total = ($order->{'coffee'.$i} * ${'coffee'.$i}->price) + ($order->{'pastry'.$i} * ${'pastry'.$i}->price);
+
+                $sum = $sum + $total;
+            }
+        }
+
+        $profit = 0;
+
+        foreach ($orders as $order) {
+
+            for($i = 1; $i < 6; $i++)  {
+                $sales = ($order->{'coffee'.$i} * (${'coffee'.$i}->price - ${'coffee'.$i}->cost)) + ($order->{'pastry'.$i} * (${'pastry'.$i}->price - ${'pastry'.$i}->cost));
+
+                $profit = $profit + $sales;
+            }
+        }
+
+        $rate = round($sum/$profit * 100,2);
+
+        return view('admin.dashboard', compact('usersTotal','ordersTotal','sum','rate'));
     
     }
 
@@ -70,6 +101,7 @@ class AdminsController extends Controller
     }
 
     public function assignRole($id){
+
         $user = User::whereId($id)->firstOrFail();
         
         if($user->hasRole('Staff')){
@@ -82,7 +114,7 @@ class AdminsController extends Controller
         }
         
 
-        return redirect('/dashboard')->with('status', 'Your Role Has been changed');
+        return redirect('/users')->with('status', 'Role User with ID:'.$user->id.' has been changed');
 
     }
 

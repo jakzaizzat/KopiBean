@@ -172,9 +172,19 @@
           <!-- this row will not appear when printing -->
           <div class="row no-print">
             <div class="col-xs-12">
-              <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-              <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment</button>
-              <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i> Generate PDF</button>
+              <!-- <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a> -->
+              <a href="{!! action('OrdersController@edit', $order->id) !!}" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Edit</a>
+              <!-- <a class="btn btn-danger pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i> Delete</a> -->
+              
+              <form method="post" action="{!! action('OrdersController@destroy', $order->id) !!}" class="pull-left">
+                <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                        <div class="form-group">
+                            <div>
+                                <button type="submit" class="btn btn-danger piull-right" style="margin-right: 5px;"><i class="fa fa-download"></i> Delete</button>
+                            </div>
+                        </div>
+                </form>
+                <div class="clearfix"></div>
             </div>
           </div>
         </section><!-- /.content -->

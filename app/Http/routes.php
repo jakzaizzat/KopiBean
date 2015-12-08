@@ -15,16 +15,18 @@
 
 Route::get('/dashboard','AdminsController@index');
 Route::get('/user/{id?}', 'AdminsController@show');
-Route::get('/user/{id?}/staff', 'AdminsController@assignRole');
+Route::get('/user/{id?}/change', 'AdminsController@assignRole');
 
 
 Route::get('test', function() {
     dd (DB::connection()->getPdo());
 });
 
+//Roles
 Route::get('/roles/add', 'RolesController@create');
 Route::post('/roles/add', 'RolesController@store');
 
+//Permission
 Route::get('/permission/add', 'PermissionsController@create');
 Route::post('/permission/add', 'PermissionsController@store');
 
@@ -59,3 +61,6 @@ Route::get('/order/index', 'OrdersController@index');
 Route::get('/order/new', 'OrdersController@create');
 Route::post('/order/new', 'OrdersController@store');
 Route::get('/order/{id?}', 'OrdersController@show');
+Route::get('/order/{id?}/edit', 'OrdersController@edit');
+Route::post('/order/{id?}/edit', 'OrdersController@update');
+Route::post('/order/{id?}/delete','OrdersController@destroy');

@@ -7,16 +7,17 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
-use App\Order;
 use App\coffee;
+use App\Order;
+use App\Pastry;
+use App\Customer;
 class OrdersController extends Controller
 {
     
     public function index()
     {
         $orders = Order::all();
-
-
+       
 
         return view('order.dashboard', compact('orders'));
 
@@ -26,7 +27,23 @@ class OrdersController extends Controller
    
     public function create()
     {
-        return view('order.create');
+        $customers = Customer::all();
+
+
+        $coffee1 = DB::table('coffees')->where('id',2)->first();
+        $coffee2 = DB::table('coffees')->where('id',3)->first();
+        $coffee3 = DB::table('coffees')->where('id',4)->first();
+        $coffee4 = DB::table('coffees')->where('id',5)->first();
+        $coffee5 = DB::table('coffees')->where('id',6)->first();
+
+        $pastry1 = DB::table('pastries')->where('id',7)->first();
+        $pastry2 = DB::table('pastries')->where('id',10)->first();
+        $pastry3 = DB::table('pastries')->where('id',11)->first();
+        $pastry4 = DB::table('pastries')->where('id',12)->first();
+        $pastry5 = DB::table('pastries')->where('id',15)->first();
+
+
+        return view('order.create',compact('customers','coffee1','coffee2','coffee3','coffee4','coffee5','pastry1','pastry2','pastry3','pastry4','pastry5'));
     }
 
  
@@ -49,7 +66,7 @@ class OrdersController extends Controller
         
         $order->save();
 
-        return redirect('/order/index')->with('status', 'Done added order');
+        return redirect('/order/index')->with('status', 'Done added order'); 
 
 
     }
@@ -78,9 +95,12 @@ class OrdersController extends Controller
         }
 
         $user = \Auth::user();
+
+        $customer = Customer::whereId($order->customerid)->firstOrFail();
+
         
         
-         return view('order.show', compact('order','coffee1','coffee2','coffee3','coffee4','coffee5','pastry1','pastry2','pastry3','pastry4','pastry5', 'total', 'user'));
+         return view('order.show', compact('order','coffee1','coffee2','coffee3','coffee4','coffee5','pastry1','pastry2','pastry3','pastry4','pastry5', 'total', 'user', 'customer'));
 
 
     }

@@ -37,7 +37,12 @@
                           <div class="form-group">
                             <label for="customerID" class="col-sm-2 control-label">Customer ID</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" id="customerID" placeholder="12345" name="customerID">
+                              <!-- <input type="text" class="form-control" id="customerID" placeholder="12345" name="customerID"> -->
+                              <select class="form-control" id="customerID" name="customerID">
+                                @foreach($customers as $customer)
+                                  <option>{!! $customer->id !!}</option>
+                                @endforeach
+                              </select>
                             </div>
                           </div>
                           <div class="form-group">
@@ -60,39 +65,44 @@
                         
                           <div class="box-body">
                             <div class="form-group">
-                              <label for="coffee1" class="col-sm-2 control-label">Latter 1</label>
-                              <div class="col-sm-10">
+                              <img src="{{ URL::asset('/img/coffee/coffee.png') }}" class="img-responsive img-create">
+                              <label for="coffee1" class="col-sm-8 control-label text-center">{!! $coffee1->name !!}</label>
+                              <div class="col-sm-2">
                                 <input type="number" class="form-control" id="coffee1" placeholder="12345" value="0" name="coffee1">
                               </div>
                             </div>
                             <div class="form-group">
-                              <label for="coffee2" class="col-sm-2 control-label">Latter 2</label>
-                              <div class="col-sm-10">
+                            <img src="{{ URL::asset('/img/coffee/coffee.png') }}" class="img-responsive img-create">
+                              <label for="coffee2" class="col-sm-8 control-label text-center">{!! $coffee2->name !!}</label>
+                              <div class="col-sm-2">
                                 <input type="number" class="form-control" id="coffee2" placeholder="12345" value="0"  name="coffee2">
                               </div>
                             </div>
                             <div class="form-group">
-                              <label for="coffee3" class="col-sm-2 control-label">Latter 3</label>
-                              <div class="col-sm-10">
+                            <img src="{{ URL::asset('/img/coffee/coffee.png') }}" class="img-responsive img-create">
+                              <label for="coffee3" class="col-sm-8 control-label text-center">{!! $coffee3->name !!}</label>
+                              <div class="col-sm-2">
                                 <input type="number" class="form-control" id="coffee3" placeholder="12345" value="0"  name="coffee3">
                               </div>
                             </div>
                             <div class="form-group">
-                              <label for="coffee4" class="col-sm-2 control-label">Latter 4</label>
-                              <div class="col-sm-10">
+                            <img src="{{ URL::asset('/img/coffee/coffee.png') }}" class="img-responsive img-create">
+                              <label for="coffee4" class="col-sm-8 control-label text-center">{!! $coffee4->name !!}</label>
+                              <div class="col-sm-2">
                                 <input type="number" class="form-control" id="coffee4" placeholder="12345" value="0"  name="coffee4"> 
                               </div>
                             </div>
                             <div class="form-group">
-                              <label for="coffee5" class="col-sm-2 control-label">Latter 5</label>
-                              <div class="col-sm-10">
+                            <img src="{{ URL::asset('/img/coffee/coffee.png') }}" class="img-responsive img-create">
+                              <label for="coffee5" class="col-sm-8 control-label text-center">{!! $coffee5->name !!}</label>
+                              <div class="col-sm-2">
                                 <input type="number" class="form-control" id="coffee5" placeholder="12345" value="0"  name="coffee5">
                               </div>
                             </div>
                           </div><!-- /.box-body -->
                           
                         
-                      </div><!-- /.box -->
+                      </div><!-- /.box -->  
                     </div>
                   </div><!-- /.tab-pane -->
                   <div class="tab-pane" id="tab_3">
@@ -102,32 +112,37 @@
                         
                           <div class="box-body">
                             <div class="form-group">
-                              <label for="pastry1" class="col-sm-2 control-label">Donut 1</label>
-                              <div class="col-sm-10">
+                            <img src="{{ URL::asset('/img/coffee/pastry.jpg') }}" class="img-responsive img-create">
+                              <label for="pastry1" class="col-sm-8 control-label text-center">{!! $pastry1->name !!}</label>
+                              <div class="col-sm-2">
                                 <input type="number" class="form-control" id="pastry1" placeholder="12345" value="0"  name="pastry1">
                               </div>
                             </div>
                             <div class="form-group">
-                              <label for="pastry2" class="col-sm-2 control-label">Donut 2</label>
-                              <div class="col-sm-10">
+                            <img src="{{ URL::asset('/img/coffee/pastry.jpg') }}" class="img-responsive img-create">
+                              <label for="pastry2" class="col-sm-8 control-label text-center">{!! $pastry2->name !!}</label>
+                              <div class="col-sm-2">
                                 <input type="number" class="form-control" id="pastry2" placeholder="12345" value="0"  name="pastry2">
                               </div>
                             </div>
                             <div class="form-group">
-                              <label for="pastry3" class="col-sm-2 control-label">Donut 3</label>
-                              <div class="col-sm-10">
+                            <img src="{{ URL::asset('/img/coffee/pastry.jpg') }}" class="img-responsive img-create">
+                              <label for="pastry3" class="col-sm-8 control-label text-center">{!! $pastry3->name !!}</label>
+                              <div class="col-sm-2">
                                 <input type="number" class="form-control" id="pastry3" placeholder="12345" value="0"  name="pastry3">
                               </div>
                             </div>
                             <div class="form-group">
-                              <label for="pastry4" class="col-sm-2 control-label">Donut 4</label>
-                              <div class="col-sm-10">
+                            <img src="{{ URL::asset('/img/coffee/pastry.jpg') }}" class="img-responsive img-create">
+                              <label for="pastry4" class="col-sm-8 control-label text-center">{!! $pastry4->name !!}</label>
+                              <div class="col-sm-2">
                                 <input type="number" class="form-control" id="pastry4" placeholder="12345" value="0"  name="pastry4">
                               </div>
                             </div>
                             <div class="form-group">
-                              <label for="pastry5" class="col-sm-2 control-label">Donut 5</label>
-                              <div class="col-sm-10">
+                            <img src="{{ URL::asset('/img/coffee/pastry.jpg') }}" class="img-responsive img-create">
+                              <label for="pastry5" class="col-sm-8 control-label text-center">{!! $pastry5->name !!}</label>
+                              <div class="col-sm-2">
                                 <input type="number" class="form-control" id="pastry5" placeholder="12345" value="0"  name="pastry5">
                               </div>
                             </div>

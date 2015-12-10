@@ -27,16 +27,16 @@
             <div class="col-sm-4 invoice-col">
               To
               <address>
-                <strong>John Doe</strong><br>
-                795 Folsom Ave, Suite 600<br>
-                San Francisco, CA 94107<br>
-                Phone: (555) 539-1037<br>
-                Email: john.doe@example.com
+                <strong>{!! $customer->name !!}</strong><br>
+                {!! $customer->address1 !!}<br>
+                {!! $customer->address2 !!}<br>
+                Phone: {!! $customer->tel !!}<br>
+                Email: {!! $customer->email !!}
               </address>
             </div><!-- /.col -->
             <div class="col-sm-4 invoice-col">
               <br>
-              <b>Order ID:</b> 4F3S8J<br>
+              <b>Order ID:</b> #{!! $order->id !!}<br>
               <b>Table No:</b> {!! $order->tableno !!}<br>
               <b>Payment Due:</b> 2/22/2014<br>
             </div><!-- /.col -->

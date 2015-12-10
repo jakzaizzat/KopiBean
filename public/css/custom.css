@@ -1,29 +1,3 @@
-
-#single-order ul{ 
-  background: radial-gradient(ellipse at bottom, #fff 100%,#333 5%); 
-  width: 100%; 
-  margin: 0 auto 0; 
-  padding: 40px 50px 50px;
-}
-
-#single-order ul li { 
-  padding: 20px 0;
-}
-
-#single-order ul li span:first-child{
-  float: left;
-  padding: 0 10px 0 0;
-}
-
-#single-order ul li span:first-child + span {
-  float: right;
-  padding: 0 0 0 10px;
-}
-
-#single-order ul li:after{
-  content: '';
-  display: block;
-  overflow: hidden;
-  border-bottom: 2px dotted #555; /* Renders poorly. I'd prefer a background image instead. */
-  height: 14px;
+.img-create{
+  max-height: 300px;
 }

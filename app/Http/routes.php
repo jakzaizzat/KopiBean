@@ -56,6 +56,12 @@ Route::post('/coffee/add', 'CoffeeController@store');
 Route::get('/pastry/add', 'PastrysController@create');
 Route::post('/pastry/add', 'PastrysController@store');
 
+//Customer
+Route::get('/customers', 'CustomersController@index');
+Route::get('/customer/add', 'CustomersController@create');
+Route::post('/customer/add', 'CustomersController@store');
+Route::get('/customer/{id?}', 'CustomersController@show');
+
 //Order
 Route::get('/order/index', 'OrdersController@index');
 Route::get('/order/new', 'OrdersController@create');

@@ -38,59 +38,63 @@
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="../../index2.html">Kopi<b>BEAN</b></a>
+        <a href="/">Kopi<b>BEAN</b></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Register first guys</p>
-        <form action="../../index2.html" method="post">
+        <form method="post">
+          <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+          @foreach ($errors->all() as $error)
+                <p class="alert alert-danger">{{ $error }}</p>
+          @endforeach
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="Name">
+            <input type="text" class="form-control" placeholder="Name" name="name">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Email">
+            <input type="email" class="form-control" placeholder="Email" name="email">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" class="form-control" placeholder="Password" name="password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Retype Password">
+            <input type="password" class="form-control" placeholder="Retype Password" name="password_confirmation">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="IC">
+            <input type="text" class="form-control" placeholder="IC" name="ic">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="Phone">
+            <input type="text" class="form-control" placeholder="Phone" name="tel">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <textarea class="form-control" rows="3" placeholder="Address1"></textarea>
+            <textarea class="form-control" rows="3" placeholder="Address1" name="address1"></textarea>
           </div>
           <div class="form-group has-feedback">
-            <textarea class="form-control" rows="3" placeholder="Address2"></textarea>
+            <textarea class="form-control" rows="3" placeholder="Address2" name="address2"></textarea>
           </div>
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="Postcode">
+            <input type="text" class="form-control" placeholder="Postcode" name="postcode">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="City">
+            <input type="text" class="form-control" placeholder="City" name="city">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="State">
+            <input type="text" class="form-control" placeholder="State" name="state">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="Country">
+            <input type="text" class="form-control" placeholder="Country" name="country">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="Salary">
+            <input type="text" class="form-control" placeholder="Salary" name="salary">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="row">
@@ -106,7 +110,7 @@
             </div><!-- /.col -->
           </div>
         </form>
-        <a href="register.html" class="text-center">Have registered? Login Heres</a>
+        <a href="/" class="text-center">Have registered? Login Heres</a>
 
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->

@@ -43,6 +43,7 @@
                                   <option>{!! $customer->id !!}</option>
                                 @endforeach
                               </select>
+                              <a href="/customer/add">Add New Customer</a>
                             </div>
                           </div>
                           <div class="form-group">

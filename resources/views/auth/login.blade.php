@@ -74,8 +74,8 @@
         </form>
 
 
-        <a href="#">I forgot my password</a><br>
-        <a href="register.html" class="text-center">Not a member? Register first</a>
+        <!-- <a href="#">I forgot my password</a><br> -->
+        <a href="/users/register" class="text-center">Not a member? Register first</a>
 
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->

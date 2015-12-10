@@ -84,6 +84,7 @@ class AuthController extends Controller
             'tel' => $data['tel']
         ]);
 
+        $user->assignRole('Staff');
 
         return $user;   
 

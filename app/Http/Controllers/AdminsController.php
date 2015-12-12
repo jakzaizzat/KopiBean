@@ -11,7 +11,7 @@ use App\Order;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use DB;
-
+use Carbon\Carbon;
 
 
 class AdminsController extends Controller
@@ -20,6 +20,11 @@ class AdminsController extends Controller
     
     public function index()
     {
+
+
+            
+            
+
 
         $users = User::all();
         $orders = Order::all();

@@ -13,6 +13,7 @@
 
 
 
+
 Route::get('/dashboard','AdminsController@index');
 Route::get('/user/{id?}', 'AdminsController@show');
 Route::get('/user/{id?}/change', 'AdminsController@assignRole');
@@ -70,3 +71,6 @@ Route::get('/order/{id?}', 'OrdersController@show');
 Route::get('/order/{id?}/edit', 'OrdersController@edit');
 Route::post('/order/{id?}/edit', 'OrdersController@update');
 Route::post('/order/{id?}/delete','OrdersController@destroy');
+
+//Chart
+Route::get('api', 'StatsController@getApi');

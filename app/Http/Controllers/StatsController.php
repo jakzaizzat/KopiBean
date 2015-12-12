@@ -6,21 +6,41 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Customer;
-use App\User;
-class CustomersController extends Controller
+use Input;
+use DB;
+class StatsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getApi()
     {
-        $customers = Customer::all();
+            $days = Input::get('days', 7);
+ 
+          $range = \Carbon\Carbon::now()->subMonths($days);
 
+           // $stats = DB::table('orders')
+           //  ->where('created_at', '>=', $range)
+           //  ->groupBy('created_at')
+           //  ->orderBy('created_at', 'ASC') // Cache the data for 24 hours
+           //  ->get([
+           //      DB::raw('created_at as "Date" '),
+           //      DB::raw('COUNT(*) as "value"')
+           //  ]);
 
-        return view('customer.index', compact('customers'));
+          $stats = DB::table('orders')
+            ->where('created_at', '>=', $range)
+            ->groupBy("to_char(created_at, 'Month')")
+            ->orderBy("to_char(created_at, 'Month')", 'ASC')
+            ->get([
+                DB::raw(" to_char(created_at, 'Month') as \"date\" "),
+                DB::raw('COUNT(*) as "value"')
+            ]);
+                   
+
+          return $stats;
     }
 
     /**
@@ -30,7 +50,7 @@ class CustomersController extends Controller
      */
     public function create()
     {
-        return view('customer.create');
+        //
     }
 
     /**
@@ -41,24 +61,7 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-        $customer = new Customer(array(
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'ic' => $request->get('ic'),
-            'tel' => $request->get('tel'),
-            'address1' => $request->get('address1'),
-            'address2' => $request->get('address2'),
-            'postcode' => $request->get('postcode'),
-            'city' => $request->get('city'),
-            'state' => $request->get('state'),
-            'country' => $request->get('country'),
-            'registered' => \Auth::user()->id
-        ));
-
-        $customer->save();
-
-        return redirect('/customers')->with('status', 'Done added customer');
-        
+        //
     }
 
     /**
@@ -69,11 +72,7 @@ class CustomersController extends Controller
      */
     public function show($id)
     {
-        $customer = Customer::whereId($id)->firstOrFail();
-
-        $register = User::whereId($customer->registered)->firstOrFail()->name;
-
-        return view('customer.show', compact('customer','register'));
+        //
     }
 
     /**

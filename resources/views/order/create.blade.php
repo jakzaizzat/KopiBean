@@ -52,6 +52,9 @@
                               <input type="number" class="form-control" id="tableno" placeholder="2" name="tableno">
                             </div>
                           </div>
+                          <div class="box-footer">
+                            <a href="#tab_2" data-toggle="tab" class="active">Next</a>
+                          </div><!-- /.box-footer -->
                         </div><!-- /.box-body -->
                         
                       

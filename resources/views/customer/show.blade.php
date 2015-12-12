@@ -45,6 +45,11 @@
                   <strong><i class="fa fa-star-o margin-r-5"></i> IC</strong>
                   <p class="text-muted">{!! $customer->ic !!}</p>
 
+                  <hr>
+
+                  <strong><i class="fa fa-star-o margin-r-5"></i> Registered By</strong>
+                  <p class="text-muted">{!! $register !!}</p>
+
                  
 
                 </div><!-- /.box-body -->

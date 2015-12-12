@@ -9,7 +9,7 @@
                   <div class="table-responsive">
 
                      @if ($customers->isEmpty())
-                        <p> There is no order.</p>
+                        <p> There is no customer.</p>
                     @else
 
                     @if (session('status'))
@@ -24,16 +24,14 @@
                           <th>Customer ID</th>
                           <th>Name</th>
                           <th>E-mail</th>
-                          <th>Registered by</th>
                         </tr>
                       </thead>
                       <tbody>
                             @foreach($customers as $customer)
                                 <tr>
-                                  <td><a href="#"><span class="label label-success">{!! $customer->id !!}</span></a></td>
+                                  <td><a href="{!! action('CustomersController@show', $customer->id) !!}"><span class="label label-success">{!! $customer->id !!}</span></a></td>
                                   <td>{!! $customer->name !!}</td>
                                   <td>{!! $customer->email !!}</td>
-                                  <td>{!! $customer->registered !!}</td>
                                 </tr>
                             @endforeach    
                       </tbody>

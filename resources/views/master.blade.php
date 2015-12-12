@@ -33,6 +33,12 @@
 
         <link href="/css/custom.css" rel="stylesheet">
 
+        <script src="{{ URL::asset('/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
+
+        <!-- Morris.js charts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+        <script src="/plugins/morris/morris.min.js"></script>
+
     </head>
   <!--
   BODY TAG OPTIONS:
@@ -286,18 +292,17 @@
     <!-- REQUIRED JS SCRIPTS -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="{{ URL::asset('/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
+    
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    
     <script>
       $.widget.bridge('uibutton', $.ui.button);
     </script>
     <!-- Bootstrap 3.3.5 -->
     <script src="{{ URL::asset('/js/bootstrap.min.js') }}"></script>
-    <!-- Morris.js charts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="/plugins/morris/morris.min.js"></script>
+    
     <!-- Sparkline -->
     <script src="/plugins/sparkline/jquery.sparkline.min.js"></script>
     <!-- jvectormap -->

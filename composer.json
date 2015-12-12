@@ -9,7 +9,8 @@
         "laravel/framework": "5.1.*",
         "yajra/laravel-oci8": "~3.0",
         "zizaco/entrust": "dev-laravel-5",
-        "spatie/laravel-permission": "^1.2"
+        "spatie/laravel-permission": "^1.2",
+        "nesbot/carbon": "^1.21"
 
     },
     "require-dev": {

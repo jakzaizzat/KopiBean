@@ -23,8 +23,6 @@
                         <tr>
                           <th>Order ID</th>
                           <th>Table No</th>
-                          <th>Customer ID</th>
-                          <th>Total</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -32,8 +30,6 @@
                                 <tr>
                                   <td><a href="{!! action('OrdersController@show', $order->id) !!}"><span class="label label-success">{!! $order->id !!}</span></a></td>
                                   <td>{!! $order->tableno !!}</td>
-                                  <td>#{!! $order->customerid !!}</td>
-                                  <td>{!! $order->total !!}</td>
                                 </tr>
                             @endforeach    
                       </tbody>

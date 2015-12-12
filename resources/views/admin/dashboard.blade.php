@@ -16,7 +16,7 @@
                 <div class="icon">
                   <i class="fa fa-cart-plus"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                
               </div>
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
@@ -29,7 +29,7 @@
                 <div class="icon">
                   <i class="fa fa-line-chart"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                
               </div>
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
@@ -42,7 +42,7 @@
                 <div class="icon">
                   <i class="fa fa-user"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+               
               </div>
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
@@ -55,7 +55,7 @@
                 <div class="icon">
                   <i class="fa fa-money"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                
               </div>
             </div><!-- ./col -->
           </div><!-- /.row -->
@@ -104,7 +104,9 @@
                         xkey: 'date', // Set the key for X-axis
                         ykeys: ['value'], // Set the key for Y-axis
                         labels: ['Orders'], // Set the label when bar is rolled over
-                        resize:['true']
+                        resize:['true'],
+                        barColors:['#fff'],
+                        gridTextColor:['#fff']
                       });
 
 

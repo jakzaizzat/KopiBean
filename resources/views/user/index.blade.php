@@ -23,7 +23,6 @@
                           <th>User ID</th>
                           <th>Email</th>
                           <th>Salary</th>
-                          <th>Role</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -33,7 +32,6 @@
                             <td><a href="{!! action('AdminsController@show', $user->id) !!}"><span class="label label-success">{!! $user->id !!}</span></a></td>
                             <td>{!! $user->email !!}</td>
                             <td>RM{!! $user->salary !!}</td>
-                            <td>Admin</td>
                           </tr>
                           @endforeach
 

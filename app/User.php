@@ -49,5 +49,9 @@ class User extends Model implements AuthenticatableContract,
      public function customer(){
         return $this->hasMany('App\customer', 'id');    
     }
+
+     public function role(){
+        return $this->hasMany('Spatie\Permission\Models\Role', 'id');    
+    }
        
 }

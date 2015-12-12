@@ -222,29 +222,6 @@
             @else
             @endhasrole
 
-            @hasrole('Admin')
-            <li>
-                  <a href="#"><i class="fa fa-cogs"></i> <span>Settings</span> <i class="fa fa-angle-left pull-right"></i></a>
-                  <ul class="treeview-menu">
-
-                    <li>
-                      <a href="#"><i class="fa fa-circle-o"></i> Role <i class="fa fa-angle-left pull-right"></i></a>
-                      <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>Add Role</a></li>
-                      </ul>
-                    </li>
-                    
-                    <li>
-                      <a href="#"><i class="fa fa-circle-o"></i> Permission <i class="fa fa-angle-left pull-right"></i></a>
-                      <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>Add Permission</a></li>
-                      </ul>
-                    </li>
-
-                  </ul>
-            </li>
-            @else
-            @endhasrole
 
           </ul><!-- /.sidebar-menu -->
         </section>

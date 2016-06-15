@@ -35,19 +35,20 @@ class CoffeeController extends Controller
         
         $coffee->save();
 
-        return redirect('/dashboard')->with('status', 'Done added coffee');
+        //return redirect('/dashboard')->with('status', 'Done added coffee');
+        return redirect('/coffee/add')->with('status', 'Done added coffee');
     }
 
    
     public function show($id)
     {
-        //
+        
     }
 
     
     public function edit($id)
     {
-        //
+        
     }
 
     

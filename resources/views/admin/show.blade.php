@@ -1,5 +1,5 @@
 @extends('master')
-@section('title', 'View a User')
+@section('title', 'Details of Employee')
 @section('content')
 
     <div class="row">
@@ -14,7 +14,7 @@
               <!-- Profile Image -->
               <div class="box box-primary">
                 <div class="box-body box-profile">
-                  <img class="profile-user-img img-responsive img-circle" src="/img/user4-128x128.jpg" alt="User profile picture">
+                  <img class="profile-user-img img-responsive img-circle" src="/img/employee.png" alt="User profile picture">
                   <h3 class="profile-username text-center">{!! $user->name !!}</h3>
                   <p class="text-muted text-center">{!! $role !!}</p>
 
@@ -24,13 +24,16 @@
               <!-- About Me Box -->
               <div class="box box-primary">
                 <div class="box-header with-border">
-                  <h3 class="box-title">About Me</h3>
+                  <h3 class="box-title">Name: {!! $user->name !!}</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <strong><i class="fa fa-book margin-r-5"></i>  E-mail</strong>
-                  <p class="text-muted">
-                    {!! $user->email !!}
-                  </p>
+                  <strong><i class="fa fa-star-o margin-r-5"></i> IC</strong>
+                  <p class="text-muted">{!! $user->ic !!}</p>
+
+                  <hr>
+
+                  <strong><i class="fa fa-star-o margin-r-5"></i> Telephone No.</strong>
+                  <p class="text-muted">{!! $user->tel !!}</p>
 
                   <hr>
 
@@ -43,9 +46,10 @@
 
                   <hr>
 
-                  <strong><i class="fa fa-star-o margin-r-5"></i> IC</strong>
-                  <p class="text-muted">{!! $user->ic !!}</p>
-
+                  <strong><i class="fa fa-book margin-r-5"></i>  E-mail</strong>
+                  <p class="text-muted">
+                    {!! $user->email !!}
+                  </p>
                   <hr>
 
                   <strong><i class="fa fa-money margin-r-5"></i> Salary</strong>

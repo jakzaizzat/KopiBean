@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Customer;
 use App\User;
+use App\Http\Requests\CustomerFormRequest;
 class CustomersController extends Controller
 {
     /**
@@ -39,7 +40,7 @@ class CustomersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CustomerFormRequest $request)
     {
         $customer = new Customer(array(
             'name' => $request->get('name'),
@@ -52,7 +53,7 @@ class CustomersController extends Controller
             'city' => $request->get('city'),
             'state' => $request->get('state'),
             'country' => $request->get('country'),
-            'registered' => \Auth::user()->id
+            'user_id' => \Auth::user()->id
         ));
 
         $customer->save();
@@ -71,9 +72,11 @@ class CustomersController extends Controller
     {
         $customer = Customer::whereId($id)->firstOrFail();
 
-        $register = User::whereId($customer->registered)->firstOrFail()->name;
+        $user = User::whereId($customer->user_id)->firstOrFail();
 
-        return view('customer.show', compact('customer','register'));
+        // $register = User::whereId($customer->registered)->firstOrFail()->name;
+
+        return view('customer.show', compact('customer','user'));
     }
 
     /**
@@ -84,7 +87,8 @@ class CustomersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $customer = Customer::whereId($id)->firstOrFail();
+        return view('customer.edit', compact('customer'));
     }
 
     /**
@@ -96,7 +100,24 @@ class CustomersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $customer = Customer::whereId($id)->firstOrFail();
+
+        $customer->name = $request->get('name');
+        $customer->email = $request->get('email');
+        $customer->ic = $request->get('ic');
+        $customer->tel = $request->get('tel');
+        $customer->address1 = $request->get('address1');
+        $customer->address2 = $request->get('address2');
+        $customer->postcode = $request->get('postcode');
+        $customer->city = $request->get('city');
+        $customer->state = $request->get('state');
+        $customer->country = $request->get('country');
+
+        $customer->save();
+         return redirect('/customer/'.$id)->with('status', 'The customer '.$id.' info has been updated!');
+
+
+
     }
 
     /**
@@ -107,6 +128,10 @@ class CustomersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customer = Customer::whereId($id)->firstOrFail();
+
+        $customer->delete();
+
+        return redirect('/customers')->with('status', 'The selected customer has been deleted');
     }
 }

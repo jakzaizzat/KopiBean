@@ -37,7 +37,7 @@
               <div class="small-box bg-yellow">
                 <div class="inner">
                   <h3>{!! $usersTotal !!}</h3>
-                  <p>User Registrations</p>
+                  <p>Employee Registrations</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-user"></i>

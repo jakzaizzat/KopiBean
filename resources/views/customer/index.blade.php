@@ -21,17 +21,19 @@
                     <table class="table no-margin">
                       <thead>
                         <tr>
-                          <th>Customer ID</th>
-                          <th>Name</th>
-                          <th>E-mail</th>
+                          <th><center>Customer ID</center></th>
+                          <th><center>Name</center></th>
+                          <th><center>I/C No.</center></th>
+                          <th><center>Telephone No.</center></th>
                         </tr>
                       </thead>
                       <tbody>
                             @foreach($customers as $customer)
                                 <tr>
-                                  <td><a href="{!! action('CustomersController@show', $customer->id) !!}"><span class="label label-success">{!! $customer->id !!}</span></a></td>
-                                  <td>{!! $customer->name !!}</td>
-                                  <td>{!! $customer->email !!}</td>
+                                  <td><center><a href="{!! action('CustomersController@show', $customer->id) !!}"><span class="label label-success">{!! $customer->id !!}</span></a></center></td>
+                                  <td><center>{!! $customer->name !!}</center></td>
+                                  <td><center>{!! $customer->ic !!}</center></td>
+                                  <td><center>{!! $customer->tel !!}</center></td>
                                 </tr>
                             @endforeach    
                       </tbody>

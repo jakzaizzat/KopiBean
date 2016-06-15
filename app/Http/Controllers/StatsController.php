@@ -33,7 +33,7 @@ class StatsController extends Controller
           $stats = DB::table('orders')
             ->where('created_at', '>=', $range)
             ->groupBy("to_char(created_at, 'Month')")
-            ->orderBy("to_char(created_at, 'Month')", 'ASC')
+            ->orderBy("to_char(created_at, 'Month')", 'DESC')
             ->get([
                 DB::raw(" to_char(created_at, 'Month') as \"date\" "),
                 DB::raw('COUNT(*) as "value"')

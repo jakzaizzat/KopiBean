@@ -1,5 +1,5 @@
 @extends('master')
-@section('title', 'Users')
+@section('title', 'Employee')
 
 
 @section('content')
@@ -20,18 +20,22 @@
                     <table class="table no-margin">
                       <thead>
                         <tr>
-                          <th>User ID</th>
-                          <th>Email</th>
-                          <th>Salary</th>
+                          <th><center>Employee ID</center></th>
+                          <th><center>Name</center></th>
+                          <th><center>I/C No.</center></th>
+                          <th><center>Telephone No.</center></th>
+                          <th><center>Salary</center></th>
                         </tr>
                       </thead>
                       <tbody>
 
                          @foreach($users as $user)
                           <tr>
-                            <td><a href="{!! action('AdminsController@show', $user->id) !!}"><span class="label label-success">{!! $user->id !!}</span></a></td>
-                            <td>{!! $user->email !!}</td>
-                            <td>RM{!! $user->salary !!}</td>
+                            <td><center><a href="{!! action('AdminsController@show', $user->id) !!}"><span class="label label-success">{!! $user->id !!}</span></a></center></td>
+                            <td><center>{!! $user->name !!}</center></td>
+                            <td><center>{!! $user->ic !!}</center></td>
+                            <td><center>{!! $user->tel !!}</center></td>
+                            <td><center>RM{!! $user->salary !!}</center></td>
                           </tr>
                           @endforeach
 
@@ -41,7 +45,7 @@
                   </div><!-- /.table-responsive -->
                 </div><!-- /.box-body -->
                 <div class="box-footer clearfix">
-                  <a href="javascript::;" class="btn btn-sm btn-info btn-flat pull-left">Register New User</a>
+                  <!-- <a href="javascript::;" class="btn btn-sm btn-info btn-flat pull-left">Register New Employee</a> -->
                 </div><!-- /.box-footer -->
               </div>
 @endsection

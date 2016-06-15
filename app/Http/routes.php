@@ -62,6 +62,9 @@ Route::get('/customers', 'CustomersController@index');
 Route::get('/customer/add', 'CustomersController@create');
 Route::post('/customer/add', 'CustomersController@store');
 Route::get('/customer/{id?}', 'CustomersController@show');
+Route::get('/customer/{id?}/edit', 'CustomersController@edit');
+Route::post('/customer/{id?}/edit', 'CustomersController@update');
+Route::post('/customer/{id?}/delete', 'CustomersController@destroy');
 
 //Order
 Route::get('/order/index', 'OrdersController@index');

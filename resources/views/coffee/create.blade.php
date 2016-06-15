@@ -14,27 +14,27 @@
 
                 <fieldset>
                     <div class="form-group">
-                        <label for="title" class="col-lg-2 control-label">Name Coffee</label>
+                        <label for="title" class="col-lg-2 control-label">Coffee Name</label>
                         <div class="col-lg-10">
-                            <input type="text" class="form-control" id="name" placeholder="Latte" name="name">
+                            <input type="text" class="form-control" id="name" placeholder="Coffee Name" name="name">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="title" class="col-lg-2 control-label">Price</label>
                         <div class="col-lg-10">
-                            <input type="text" class="form-control" id="price" placeholder="30" name="price">
+                            <input type="text" class="form-control" id="price" placeholder="0.00" name="price">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="title" class="col-lg-2 control-label">Cost</label>
                         <div class="col-lg-10">
-                            <input type="text" class="form-control" id="cost" placeholder="15" name="cost">
+                            <input type="text" class="form-control" id="cost" placeholder="0.00" name="cost">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <div class="col-lg-10 col-lg-offset-2">
-                            <button class="btn btn-default">Cancel</button>
+                        <div align="center"><!-- class="col-lg-10 col-lg-offset-2" -->
+                            <!-- <button class="btn btn-default">Cancel</button> -->
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
@@ -43,7 +43,8 @@
         </div>
     </div>
 
-    <div class="container col-md-8 col-md-offset-2">
+    <div class="row">
+        <div class="container col-md-8 col-md-offset-2">
 
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -63,25 +64,26 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Coffee ID</th>
-                                <th>Coffee Name</th>
-                                <th>Coffee Price</th>
-                                <th>Coffee Cost</th>
+                                <th><center>Coffee ID</center></th>
+                                <th><center>Coffee Name</center></th>
+                                <th><center>Coffee Price</center></th>
+                                <th><center>Coffee Cost</center></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($coffees as $coffee)
                                 <tr>
-                                    <td>{!! $coffee->id !!}</td>
-                                    <td>{!! $coffee->name !!}</td>
-                                    <td>{!! $coffee->price !!}</td>
-                                    <td>{!! $coffee->cost !!}</td>
+                                    <td><center>{!! $coffee->id !!}</center></td>
+                                    <td><center>{!! $coffee->name !!}</center></td>
+                                    <td><center>{!! $coffee->price !!}</center></td>
+                                    <td><center>{!! $coffee->cost !!}</center></td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 @endif
             </div>
+        </div>
     </div>
 
 

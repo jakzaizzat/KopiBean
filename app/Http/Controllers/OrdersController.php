@@ -11,13 +11,15 @@ use App\coffee;
 use App\Order;
 use App\Pastry;
 use App\Customer;
+use App\User;
+use App\Http\Requests\OrderFormRequest;
 class OrdersController extends Controller
 {
     
     public function index()
     {
         $orders = Order::all();
-        
+    
 
         return view('order.dashboard', compact('orders'));
 
@@ -30,25 +32,26 @@ class OrdersController extends Controller
         $customers = Customer::all();
 
 
-        $coffee1 = DB::table('coffees')->where('id',2)->first();
-        $coffee2 = DB::table('coffees')->where('id',3)->first();
-        $coffee3 = DB::table('coffees')->where('id',4)->first();
-        $coffee4 = DB::table('coffees')->where('id',5)->first();
-        $coffee5 = DB::table('coffees')->where('id',6)->first();
+        $coffee1 = DB::table('coffees')->where('id',1)->first();
+        $coffee2 = DB::table('coffees')->where('id',2)->first();
+        $coffee3 = DB::table('coffees')->where('id',3)->first();
+        $coffee4 = DB::table('coffees')->where('id',4)->first();
+        $coffee5 = DB::table('coffees')->where('id',5)->first();
 
-        $pastry1 = DB::table('pastries')->where('id',7)->first();
-        $pastry2 = DB::table('pastries')->where('id',10)->first();
-        $pastry3 = DB::table('pastries')->where('id',11)->first();
-        $pastry4 = DB::table('pastries')->where('id',12)->first();
-        $pastry5 = DB::table('pastries')->where('id',15)->first();
+        $pastry1 = DB::table('pastries')->where('id',1)->first();
+        $pastry2 = DB::table('pastries')->where('id',2)->first();
+        $pastry3 = DB::table('pastries')->where('id',3)->first();
+        $pastry4 = DB::table('pastries')->where('id',4)->first();
+        $pastry5 = DB::table('pastries')->where('id',5)->first();
 
 
         return view('order.create',compact('customers','coffee1','coffee2','coffee3','coffee4','coffee5','pastry1','pastry2','pastry3','pastry4','pastry5'));
     }
 
  
-    public function store(Request $request)
+    public function store(OrderFormRequest $request)
     {
+        $id = \Auth::user()->id;
         $order = new Order(array(
             'customerID' => $request->get('customerID'),
             'tableNo' => $request->get('tableno'),
@@ -62,6 +65,7 @@ class OrdersController extends Controller
             'pastry3' => $request->get('pastry3'),
             'pastry4' => $request->get('pastry4'),
             'pastry5' => $request->get('pastry5'),
+            'user_id' => $id
         ));
         
         $order->save();
@@ -76,17 +80,17 @@ class OrdersController extends Controller
     {
         $order = Order::whereId($id)->firstOrFail();
                
-        $coffee1 = DB::table('coffees')->where('id',2)->first();
-        $coffee2 = DB::table('coffees')->where('id',3)->first();
-        $coffee3 = DB::table('coffees')->where('id',4)->first();
-        $coffee4 = DB::table('coffees')->where('id',5)->first();
-        $coffee5 = DB::table('coffees')->where('id',6)->first();
+        $coffee1 = DB::table('coffees')->where('id',1)->first();
+        $coffee2 = DB::table('coffees')->where('id',2)->first();
+        $coffee3 = DB::table('coffees')->where('id',3)->first();
+        $coffee4 = DB::table('coffees')->where('id',4)->first();
+        $coffee5 = DB::table('coffees')->where('id',5)->first();
 
-        $pastry1 = DB::table('pastries')->where('id',7)->first();
-        $pastry2 = DB::table('pastries')->where('id',10)->first();
-        $pastry3 = DB::table('pastries')->where('id',11)->first();
-        $pastry4 = DB::table('pastries')->where('id',12)->first();
-        $pastry5 = DB::table('pastries')->where('id',15)->first();
+        $pastry1 = DB::table('pastries')->where('id',1)->first();
+        $pastry2 = DB::table('pastries')->where('id',2)->first();
+        $pastry3 = DB::table('pastries')->where('id',3)->first();
+        $pastry4 = DB::table('pastries')->where('id',4)->first();
+        $pastry5 = DB::table('pastries')->where('id',5)->first();
 
 
         $total = 0;
@@ -94,7 +98,8 @@ class OrdersController extends Controller
             $total = (${'coffee'.$i}->price * $order->{'coffee'.$i}) + (${'pastry'.$i}->price * $order->{'pastry'.$i}) + $total;
         }
 
-        $user = \Auth::user();
+        
+        $user = User::whereId($order->user_id)->firstOrFail();
 
         $customer = Customer::whereId($order->customerid)->firstOrFail();
 

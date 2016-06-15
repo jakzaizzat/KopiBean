@@ -2,7 +2,8 @@
 @section('title', 'Add New Customer')
 
 @section('content')
-<div class="container col-md-8 col-md-offset-2">
+<div class="row">
+    <div class="container col-md-8 col-md-offset-2">
         <div class="well well bs-component">
             <form class="form-horizontal" method="post">
 
@@ -31,14 +32,14 @@
                     <div class="form-group">
                         <label for="title" class="col-lg-2 control-label">IC No</label>
                         <div class="col-lg-10">
-                            <input type="number" class="form-control" id="ic" placeholder="Title" name="ic">
+                            <input type="text" class="form-control" id="ic" placeholder="I/C" name="ic">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="title" class="col-lg-2 control-label">Tel</label>
+                        <label for="title" class="col-lg-2 control-label">Telephone No.</label>
                         <div class="col-lg-10">
-                            <input type="number" class="form-control" id="tel" placeholder="Title" name="tel">
+                            <input type="text" class="form-control" id="tel" placeholder="Telephone No." name="tel">
                         </div>
                     </div>
 
@@ -55,11 +56,11 @@
                     <div class="form-group">
                         <label for="title" class="col-lg-2 control-label">Postcode</label>
                         <div class="col-lg-4">
-                            <input type="number" class="form-control" id="postcode" placeholder="Address 1" name="postcode">
+                            <input type="text" class="form-control" id="postcode" placeholder="Postcode" name="postcode">
                         </div>
                         <label for="title" class="col-lg-2 control-label">City</label>
                         <div class="col-lg-4">
-                            <input type="text" class="form-control" id="city" placeholder="Address 2" name="city">
+                            <input type="text" class="form-control" id="city" placeholder="City" name="city">
                         </div>
                     </div>
 
@@ -75,8 +76,8 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-lg-10 col-lg-offset-2">
-                            <button class="btn btn-default">Cancel</button>
+                        <div align="center"><!-- class="col-lg-10 col-lg-offset-2" -->
+                            <!-- <button class="btn btn-default">Cancel</button> -->
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
@@ -84,4 +85,5 @@
             </form>
         </div>
     </div>
+</div>
 @endsection

@@ -1,5 +1,5 @@
 @extends('master')
-@section('title',404')
+@section('title','404')
 
 @section('content')
 		<div class="error-page">

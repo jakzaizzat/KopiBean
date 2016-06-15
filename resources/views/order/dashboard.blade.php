@@ -1,5 +1,5 @@
 @extends('master')
-@section('title', 'List Order')
+@section('title', 'Order')
 
 @section('content')
 
@@ -21,15 +21,15 @@
                     <table class="table no-margin">
                       <thead>
                         <tr>
-                          <th>Order ID</th>
-                          <th>Table No</th>
+                          <th><center>Order ID</center></th>
+                          <th><center>Table No</center></th>
                         </tr>
                       </thead>
                       <tbody>
                             @foreach($orders as $order)
                                 <tr>
-                                  <td><a href="{!! action('OrdersController@show', $order->id) !!}"><span class="label label-success">{!! $order->id !!}</span></a></td>
-                                  <td>{!! $order->tableno !!}</td>
+                                  <td><center><a href="{!! action('OrdersController@show', $order->id) !!}"><span class="label label-success">{!! $order->id !!}</span></a></center></td>
+                                  <td><center>{!! $order->tableno !!}</center></td>
                                 </tr>
                             @endforeach    
                       </tbody>

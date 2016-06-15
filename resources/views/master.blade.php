@@ -69,7 +69,7 @@
         <!-- Logo -->
         <a href="/dashboard" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>K</b>B</span>
+          <span class="logo-mini"><b>KB</b></span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg">KOPIBEAN</span>
         </a>
@@ -88,7 +88,7 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                  <img src="/img/employee.png" class="user-image" alt="User Image">
                   @if (Auth::check())
                     <span class="hidden-xs">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</span>
                   @else
@@ -98,14 +98,14 @@
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="/img/employee.png" class="img-circle" alt="User Image">
                     <p>
                     @if( Auth::check())
                       <small>{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</small>
                       <small>Registered since {{{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('m/d/Y') : Auth::user()->email }}}</small>
                     @else
                       <small>Name - Role</small>
-                      <small>Registered since Nov. 2012</small>
+                      <small>Unregistered</small>
                     @endif
                       
                     </p>
@@ -138,7 +138,7 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <img src="/img/employee.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
             
@@ -165,7 +165,7 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-files-o"></i>
-                <span>Orders</span>
+                <span>Order</span>
               </a>
               <ul class="treeview-menu">
                 <li><a href="/order/new"><i class="fa fa-circle-o"></i> Add New Order</a></li>
@@ -188,11 +188,11 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-users"></i>
-                <span>User</span>
+                <span>Employee</span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="users/register"><i class="fa fa-circle-o"></i> Add New User</a></li>
-                <li><a href="/users"><i class="fa fa-circle-o"></i> List All Users</a></li>
+                <!-- <li><a href="users/register"><i class="fa fa-circle-o"></i> Add New User</a></li> -->
+                <li><a href="/users"><i class="fa fa-circle-o"></i> List All Employee</a></li>
               </ul>
             </li>
             @else
@@ -232,9 +232,29 @@
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
+                      <script type="text/javascript">
+                        function GetClock(){
+                        var d=new Date();
+                        var nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
+                        if(nyear<1000) nyear+=1900;
+                        var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds();
+                        if(nmin<=9) nmin="0"+nmin
+                        if(nsec<=9) nsec="0"+nsec;
+
+                        document.getElementById('clockbox').innerHTML="Date: "+ndate+"/"+(nmonth+1)+"/"+nyear+" Time: "+nhour+":"+nmin+":"+nsec+"";
+                        }
+
+                        window.onload=function(){
+                        GetClock();
+                        setInterval(GetClock,1000);
+                        }
+                      </script>
+                      <div id="clockbox" align="left"></div>
+
                   <h1>
                     @yield('title')
                   </h1>
+
                   <ol class="breadcrumb">
                     <li><a href="/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
                     <li class="active">@yield('title')</li>
@@ -254,10 +274,10 @@
       <footer class="main-footer">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-          Anything you want
+          The true coffee.
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2015 <a href="#">Company</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2015 <a href="#">Kopi Bean</a>.</strong> All rights reserved.
       </footer>
 
       

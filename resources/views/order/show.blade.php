@@ -1,5 +1,5 @@
 @extends('master')
-@section('title', 'View a Order')
+@section('title', 'Receipt')
 @section('content')
 
 <section class="invoice">

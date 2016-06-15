@@ -49,7 +49,7 @@
           @endforeach
           <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="Name" name="name">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <span class="fa fa-user form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
             <input type="email" class="form-control" placeholder="Email" name="email">
@@ -65,11 +65,11 @@
           </div>
           <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="IC" name="ic">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <span class="fa fa-check form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="Phone" name="tel">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <span class="fa fa-phone form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
             <textarea class="form-control" rows="3" placeholder="Address1" name="address1"></textarea>
@@ -79,23 +79,23 @@
           </div>
           <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="Postcode" name="postcode">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <span class="fa fa-map-signs form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="City" name="city">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <span class="fa fa-map-pin form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="State" name="state">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <span class="fa fa-map-marker form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="Country" name="country">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <span class="fa fa-map form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="Salary" name="salary">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <span class="fa fa-money form-control-feedback"></span>
           </div>
           <div class="row">
             <div class="col-xs-8">
